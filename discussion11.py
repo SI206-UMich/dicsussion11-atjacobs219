@@ -62,7 +62,12 @@ def add_pets_from_json(filename, cur, conn):
     json_data = json.loads(file_data)
 
     # THE REST IS UP TO YOU
-    pass
+    count = 1
+    for data in json_data:
+        pet_id = count
+        count += 1
+        name = data['name']
+        cur.execute('SELECT id FROM Species WHERE title = ?', (data['species'],))
 
 
 # TASK 3
